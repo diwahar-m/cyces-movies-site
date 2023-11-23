@@ -24,7 +24,7 @@ export default function MovieList(){
             <div className=" flex flex-wrap my-2">
 
                 <div className=" m-[1rem]" onClick={()=>{navigate('/timeslot')}}>
-                    <img src={process.env.PUBLIC_URL + '/assets/film-movie.png'} className="h-[10em] w-[15em]"/> 
+                    <img src={process.env.PUBLIC_URL + '/assets/film-movie.png'} alt='movie' className="h-[10em] w-[15em]"/> 
                     <div className="">
                         <div>
                             <h6 className='text-sm md:text-sm font-bold mt-[1rem]'>Movie name</h6>                         
@@ -35,7 +35,7 @@ export default function MovieList(){
                     </div>
                 </div> 
                 <div className=" m-[1rem]" onClick={()=>{navigate('/timeslot')}}>
-                    <img src={process.env.PUBLIC_URL + '/assets/film-movie.png'} className="h-[10em] w-[15em]"/> 
+                    <img src={process.env.PUBLIC_URL + '/assets/film-movie.png'} alt='movie' className="h-[10em] w-[15em]"/> 
                     <div className="">
                         <div>
                             <h6 className='text-sm md:text-sm font-bold mt-[1rem]'>Movie name</h6>                         
@@ -46,7 +46,7 @@ export default function MovieList(){
                     </div>
                 </div> 
                 <div className=" m-[1rem]" onClick={()=>{navigate('/timeslot')}}>
-                    <img src={process.env.PUBLIC_URL + '/assets/film-movie.png'} className="h-[10em] w-[15em]"/> 
+                    <img src={process.env.PUBLIC_URL + '/assets/film-movie.png'} alt='movie' className="h-[10em] w-[15em]"/> 
                     <div className="">
                         <div>
                             <h6 className='text-sm md:text-sm font-bold mt-[1rem]'>Movie name</h6>                         
@@ -57,7 +57,7 @@ export default function MovieList(){
                     </div>
                 </div> 
                 <div className=" m-[1rem]" onClick={()=>{navigate('/timeslot')}}>
-                    <img src={process.env.PUBLIC_URL + '/assets/film-movie.png'} className="h-[10em] w-[15em]"/> 
+                    <img src={process.env.PUBLIC_URL + '/assets/film-movie.png'} alt='movie' className="h-[10em] w-[15em]"/> 
                     <div className="">
                         <div>
                             <h6 className='text-sm md:text-sm font-bold mt-[1rem]'>Movie name</h6>                         
