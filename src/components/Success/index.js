@@ -24,7 +24,7 @@ export default function Success({userDetails}){
             timeUp();
         } 
 
-    },[userDetails, completedProfile.price, navigate])
+    },[userDetails, completedProfile.price])
 
     return(
         <div className='h-screen  w-screen flex flex-col justify-center items-center px-[5rem]  '>
