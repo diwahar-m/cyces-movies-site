@@ -15,26 +15,26 @@ export default function TimeSlot({userDetails, changeDetails}){
     const [error, updateError] = useState(''); 
  
     const time = useRef('');
-    let isSelected = false ;
+    // let isSelected = false ;
   
     const timeHandler = event =>{
         // if no button selected
         if(time.current === ''){
             time.current = event.target.id; 
-            isSelected = true;
-            changeDetails({ ['timeslot']: event.target.id}); 
+            // isSelected = true;
+            changeDetails({ [timeslot]: event.target.id}); 
             event.target.classList.add('selected');
             updateError('');
          } // if same button was selected 
         else if(time.current === event.target.id){
             
-            changeDetails({ ['timeslot']: '_'}); 
+            changeDetails({ [timeslot]: '_'}); 
             event.target.classList.remove('selected'); 
 
             if(userDetails.timeslot===''){
                 event.target.classList.add('selected');
-                isSelected = true;
-                changeDetails({ ['timeslot']: event.target.id}); 
+                // isSelected = true;
+                changeDetails({ [timeslot]: event.target.id}); 
             }
 
         } else{
