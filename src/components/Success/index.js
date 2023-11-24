@@ -24,7 +24,7 @@ export default function Success({userDetails}){
             timeUp();
         } 
 
-    },[])
+    })
 
     return(
         <div className='h-screen  w-screen flex flex-col justify-center items-center px-[5rem]  '>
