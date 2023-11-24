@@ -41,7 +41,7 @@ export default function SeatSlot({userDetails, changeDetails}){
 
     const seat = useRef(''); 
 
-    
+    console.log(seat);
 
     const seatHandler = (id) =>{
         let selectedSeat = document.getElementById(id);

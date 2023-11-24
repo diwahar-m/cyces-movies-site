@@ -8,15 +8,10 @@ import './style.css' ;
 // if button pressed => change color and transfer state 
 // 
 
-
-
-
-
 export default function TimeSlot({userDetails, changeDetails}){ 
 
     const navigate = useNavigate(); 
 
-    const [color, updateColor] = useState(''); 
     const [error, updateError] = useState(''); 
  
     const time = useRef('');
@@ -33,9 +28,9 @@ export default function TimeSlot({userDetails, changeDetails}){
          } // if same button was selected 
         else if(time.current === event.target.id){
             
-            changeDetails({ ['timeslot']: ''}); 
+            changeDetails({ ['timeslot']: '_'}); 
             event.target.classList.remove('selected'); 
-            
+
             if(userDetails.timeslot===''){
                 event.target.classList.add('selected');
                 isSelected = true;

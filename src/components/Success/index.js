@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import {useNavigate,} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
 export default function Success({userDetails}){
 
@@ -20,10 +20,10 @@ export default function Success({userDetails}){
         }
         
         updateProfile(userDetails); 
-        if(completedProfile.price >0 && userDetails.price) timeUp();
+        if(completedProfile.price >0 && userDetails.price){
+            timeUp();
+        } 
 
-
-        timeUp();
     },[completedProfile])
 
     return(
