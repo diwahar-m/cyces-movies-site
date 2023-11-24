@@ -1,7 +1,7 @@
 import { useNavigate} from "react-router-dom"; 
 import { useState } from "react";
 
-export default function SignUp({userDetails, updateDetails}){  
+export default function SignUp({userDetails, changeDetails}){  
 
     const navigate = useNavigate(); 
 
@@ -9,7 +9,7 @@ export default function SignUp({userDetails, updateDetails}){
 
     const inputHandler = event =>{
         updateError('');
-        updateDetails({...userDetails, [event.target.id]:event.target.value});
+        changeDetails({[event.target.id]:event.target.value});
     } 
 
     const submitForm =(event)=>{

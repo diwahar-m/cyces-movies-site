@@ -23,7 +23,7 @@ export default function MovieList(){
 
             <div className=" flex flex-wrap my-2">
 
-                <div className=" m-[1rem]" onClick={()=>{navigate('/timeslot')}}>
+                <div className=" m-[1rem]" onClick={()=>{navigate('/timing')}}>
                     <img src={process.env.PUBLIC_URL + '/assets/film-movie.png'} alt='movie' className="h-[10em] w-[15em]"/> 
                     <div className="">
                         <div>
@@ -34,7 +34,7 @@ export default function MovieList(){
                             
                     </div>
                 </div> 
-                <div className=" m-[1rem]" onClick={()=>{navigate('/timeslot')}}>
+                <div className=" m-[1rem]" onClick={()=>{navigate('/timing')}}>
                     <img src={process.env.PUBLIC_URL + '/assets/film-movie.png'} alt='movie' className="h-[10em] w-[15em]"/> 
                     <div className="">
                         <div>
@@ -45,7 +45,7 @@ export default function MovieList(){
                             
                     </div>
                 </div> 
-                <div className=" m-[1rem]" onClick={()=>{navigate('/timeslot')}}>
+                <div className=" m-[1rem]" onClick={()=>{navigate('/timing')}}>
                     <img src={process.env.PUBLIC_URL + '/assets/film-movie.png'} alt='movie' className="h-[10em] w-[15em]"/> 
                     <div className="">
                         <div>
@@ -56,7 +56,7 @@ export default function MovieList(){
                             
                     </div>
                 </div> 
-                <div className=" m-[1rem]" onClick={()=>{navigate('/timeslot')}}>
+                <div className=" m-[1rem]" onClick={()=>{navigate('/timing')}}>
                     <img src={process.env.PUBLIC_URL + '/assets/film-movie.png'} alt='movie' className="h-[10em] w-[15em]"/> 
                     <div className="">
                         <div>
