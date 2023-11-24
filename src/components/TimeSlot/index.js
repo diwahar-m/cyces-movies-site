@@ -22,19 +22,19 @@ export default function TimeSlot({userDetails, changeDetails}){
         if(time.current === ''){
             time.current = event.target.id; 
             // isSelected = true;
-            changeDetails({ [timeslot]: event.target.id}); 
+            changeDetails({ ['timeslot']: event.target.id}); 
             event.target.classList.add('selected');
             updateError('');
          } // if same button was selected 
         else if(time.current === event.target.id){
             
-            changeDetails({ [timeslot]: '_'}); 
+            changeDetails({ ['timeslot']: '_'}); 
             event.target.classList.remove('selected'); 
 
             if(userDetails.timeslot===''){
                 event.target.classList.add('selected');
                 // isSelected = true;
-                changeDetails({ [timeslot]: event.target.id}); 
+                changeDetails({ ['timeslot']: event.target.id}); 
             }
 
         } else{
