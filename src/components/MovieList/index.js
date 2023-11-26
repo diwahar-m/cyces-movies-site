@@ -1,11 +1,56 @@
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"; 
+import {useState, useEffect} from 'react';
+import MovieCard from "../../cards/MovieCard";
 
-export default function MovieList(){ 
+ // const movie =[
+    //     {
+    //         id:"1",
+    //         name: '',
+    //         price:''
+    //     }
+    // ]
 
-    const navigate = useNavigate();
+    // const theatre =[
+    //     {
+    //         movis: [1, 2]
+    //         name: "pvr"
+    //         seats":
+    //         time: 
+    //     }
+    // ]
+
+export default function MovieList({jsonData, changeUser, changeJson}){ 
+
+    const navigate = useNavigate(); 
+
+    const fetchData = async()=>{
+        try{
+            let response = await fetch("data.json"); 
+            let fetchedData =await response.json();
+            changeJson(fetchedData);
+        }catch(e){
+            console.log('Error while fetching data: ', e)
+        }      
+    }
+
+    useEffect(()=>{
+        fetchData();
+    },[])
 
     return(
         <div className='h-screen flex-col justify-between items-center px-[2rem] py-[4rem] '>
+
+            <div className="px-[1.5rem]  flex  justify-between md:items-center
+                md:flex-row md:w-full">
+
+                    <button type='type' onClick={()=>{navigate('/')}} className='w-[5rem]   text-sm h-[2.5rem]  mb-1 border-[0.1rem] 
+                    rounded-3xl border-[#7a7777] md:w-[5rem]  md:h-[3rem] text-[black] border-[black] hover:text-[#ffffff] hover:bg-[black]
+                      lg:h-[3rem] lg:text-sm lg:w-[5rem] flex justify-center items-center '>Back</button> 
+                    
+                    <button type='type' onClick={()=>{navigate('/')}} className='w-[5rem]   text-sm h-[2.5rem]  mb-1 border-[0.1rem] 
+                    rounded-3xl border-[#7a7777]  md:w-[5rem]  md:h-[3rem] text-[red] border-[red] hover:text-[#ffffff] hover:bg-[red]
+                      lg:h-[3rem] lg:text-sm lg:w-[5rem] flex justify-center items-center '>Log out</button> 
+            </div> 
 
             <div className="px-[1.5rem]  flex flex-col justify-between md:items-center
                 md:flex-row md:w-full">
@@ -21,55 +66,16 @@ export default function MovieList(){
             </div> 
 
 
-            <div className=" flex flex-wrap my-2">
+            <div className=" flex  justify-center items-center flex-wrap my-2">
+                <div  className=" flex justify-center flex-wrap  w-11/12">
+                    {  jsonData.movies &&
+                        jsonData.movies.map(movie =>(
+                            <MovieCard key={movie.id} movie={movie} changeUser={changeUser}/>
+                        ))
+                    }
 
-                <div className=" m-[1rem]" onClick={()=>{navigate('/timing')}}>
-                    <img src={process.env.PUBLIC_URL + '/assets/film-movie.png'} alt='movie' className="h-[10em] w-[15em]"/> 
-                    <div className="">
-                        <div>
-                            <h6 className='text-sm md:text-sm font-bold mt-[1rem]'>Movie name</h6>                         
-                            <p className='text-sm md:text-md font-base mb-[1rem]'>Tamil</p> 
-                        </div>
-                        <h6 className='text-sm md:text-md font-semibold mb-[2rem]'>Rs. 180/ per seat</h6> 
-                            
-                    </div>
-                </div> 
-                <div className=" m-[1rem]" onClick={()=>{navigate('/timing')}}>
-                    <img src={process.env.PUBLIC_URL + '/assets/film-movie.png'} alt='movie' className="h-[10em] w-[15em]"/> 
-                    <div className="">
-                        <div>
-                            <h6 className='text-sm md:text-sm font-bold mt-[1rem]'>Movie name</h6>                         
-                            <p className='text-sm md:text-md font-base mb-[1rem]'>Tamil</p> 
-                        </div>
-                        <h6 className='text-sm md:text-md font-semibold mb-[2rem]'>Rs. 180/ per seat</h6> 
-                            
-                    </div>
-                </div> 
-                <div className=" m-[1rem]" onClick={()=>{navigate('/timing')}}>
-                    <img src={process.env.PUBLIC_URL + '/assets/film-movie.png'} alt='movie' className="h-[10em] w-[15em]"/> 
-                    <div className="">
-                        <div>
-                            <h6 className='text-sm md:text-sm font-bold mt-[1rem]'>Movie name</h6>                         
-                            <p className='text-sm md:text-md font-base mb-[1rem]'>Tamil</p> 
-                        </div>
-                        <h6 className='text-sm md:text-md font-semibold mb-[2rem]'>Rs. 180/ per seat</h6> 
-                            
-                    </div>
-                </div> 
-                <div className=" m-[1rem]" onClick={()=>{navigate('/timing')}}>
-                    <img src={process.env.PUBLIC_URL + '/assets/film-movie.png'} alt='movie' className="h-[10em] w-[15em]"/> 
-                    <div className="">
-                        <div>
-                            <h6 className='text-sm md:text-sm font-bold mt-[1rem]'>Movie name</h6>                         
-                            <p className='text-sm md:text-md font-base mb-[1rem]'>Tamil</p> 
-                        </div>
-                        <h6 className='text-sm md:text-md font-semibold mb-[2rem]'>Rs. 180/ per seat</h6> 
-                            
-                    </div>
-                </div> 
-
+                </div>
                 
-
             </div>
 
         </div>

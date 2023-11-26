@@ -15,7 +15,7 @@ export default function SignUp({userDetails, changeDetails}){
     const submitForm =(event)=>{
         event.preventDefault();
         if(userDetails.username && userDetails.password){
-             navigate('/movielist'); 
+             navigate('/home'); 
              console.log(userDetails)
         }else updateError('*Please fill the SignUp form')
 

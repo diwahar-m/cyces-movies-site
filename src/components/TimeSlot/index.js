@@ -28,7 +28,7 @@ export default function TimeSlot({userDetails, changeDetails}){
          } // if same button was selected 
         else if(time.current === event.target.id){
             
-            changeDetails({ timeslot: '_'}); 
+            changeDetails({ timeslot: ''}); 
             event.target.classList.remove('selected'); 
 
             if(userDetails.timeslot===''){
