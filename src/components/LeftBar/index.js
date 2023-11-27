@@ -8,9 +8,9 @@ export default function LeftBar({userDetails}){
 
     const [currentPath, updateState] = useState('')
 
-    useEffect(()=>{
-        updateState(window.location.pathname)
-    },[])
+        useEffect(()=>{
+            updateState(window.location.pathname)
+        },[])
 
     const selectedButton = 'bg-[#000000] text-[#ffffff]'; 
     const otherButtons = 'text-[#000000] bg-[#ffffff]' 

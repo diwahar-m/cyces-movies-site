@@ -35,7 +35,7 @@ export default function MovieList({jsonData, changeUser, changeJson}){
 
     useEffect(()=>{
         fetchData();
-    },[])
+    },[jsonData])
 
     return(
         <div className='h-screen flex-col justify-between items-center px-[2rem] py-[4rem] '>

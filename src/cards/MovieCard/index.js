@@ -1,12 +1,11 @@
 import {Link  } from "react-router-dom"
 
 export default function MovieCard({movie, changeUser}){
-    console.log('movie',movie);
+    
     let movieName = movie.name
 
     const handleClick=()=>{
-        changeUser({"movieName": movie.name})
-       
+        changeUser({"userMovie": movie})   
     }
 
     return(

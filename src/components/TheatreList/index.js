@@ -3,18 +3,18 @@ import {useState, useEffect} from 'react';
 import TheatreCard from "../../cards/TheatreCard";
 
 
-export default function TheatreList({jsonData}){ 
+export default function TheatreList({jsonData,user, changeUser}){ 
 
     const navigate = useNavigate(); 
-    const {movieName} = useParams();
+    
 
     const [selectedMovie, updateMovie] = useState({});
     const [theatreList, updateTheatre] = useState([]);
-    
-    console.log(jsonData)
 
-    const filteringMovies = () =>{ 
-        const movie = jsonData.movies.filter( movie => movie.name === movieName)
+    const {movieName} = useParams();
+
+    const filteringMovies = () =>{     
+        const movie =  jsonData.movies.filter( movie => movie.name === movieName)
         updateMovie(movie[0]);
     }
 
@@ -28,7 +28,7 @@ export default function TheatreList({jsonData}){
     useEffect(()=>{
         filteringMovies();
         filteringTheatres();
-    },[])
+    },[selectedMovie])
 
     return(
         <div className=' h-screen flex-col justify-between items-center px-[2rem] py-[4rem] '>
@@ -51,9 +51,10 @@ export default function TheatreList({jsonData}){
             {
                 selectedMovie && 
                 (
-                <div  className="md:px-[1.5rem]  flex flex-col justify-between md:items-center
+                <div  className="md:px-[1.5rem]  flex flex-col justify-center items-center md:items-center
                 md:flex-row md:w-full">
-                    <div className="w-4/6 md:w-full m-[1rem]  border-[.1rem] p-[.3rem] rounded-lg cursor-pointer shadow-[red] shadow-lg flex flex-col justify-center md:justify-start md:flex-row" >
+                    <div className="w-4/6 md:w-full m-[1rem]  border-[.1rem] p-[.3rem] rounded-lg cursor-pointer shadow-[red] shadow-lg
+                     flex flex-col justify-center md:justify-start md:flex-row" >
                             <img src={selectedMovie.url} alt='movie' className="object-fill h-[17rem] md:h-[25em] md:w-[20em] md:mr-[1rem] rounded-lg"/> 
                             <div className="pl-[1rem] flex flex-col justify-center">
                                 <div>
@@ -61,7 +62,7 @@ export default function TheatreList({jsonData}){
                                     <p className='text-sm md:text-2xl font-base mb-[1rem]'>{selectedMovie.language}</p> 
                                 </div>
                                 <h6 className='text-sm md:text-xl font-semibold mb-[2rem]'>Cast: {selectedMovie.cast}</h6> 
-                                <h6 className='text-sm md:text-lg font-semibold mb-[2rem]'>Ratings: 8.5/10</h6> 
+                                <h6 className='text-sm md:text-lg font-semibold mb-[2rem]'>Ratings: {selectedMovie.ratings}/10</h6> 
                                 <h6 className='text-sm md:text-md font-semibold mb-[2rem]'>Rs. 180/ per seat</h6> 
                                     
                             </div>
@@ -71,18 +72,15 @@ export default function TheatreList({jsonData}){
             }
 
             { theatreList.length > 0 && (
-                        <div className=" flex flex-wrap my-2 px-[1.5rem]  flex flex-col  
+                        <div className=" flex flex-wrap my-2 px-[1.5rem]  flex flex-col justify-center items-center
                         md:flex-row md:w-full">
                             {  
                                 theatreList.map(theatre =>(
-                                    <TheatreCard key={theatre.id} theatre={theatre} selectedMovie={selectedMovie}/>
+                                    <TheatreCard key={theatre.id} user={user} theatre={theatre} selectedMovie={selectedMovie} changeUser={changeUser}/>
                                 ))
                             }
                         </div>
-            )}
-                    
-                
-            
+            )}  
         </div> 
 
     )
