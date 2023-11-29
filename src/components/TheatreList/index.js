@@ -10,6 +10,7 @@ export default function TheatreList({jsonData,user, changeUser}){
 
     const [selectedMovie, updateMovie] = useState({});
     const [theatreList, updateTheatre] = useState([]);
+    const [error, updateError] = useState('');
 
     const {movieName} = useParams();
 
@@ -37,12 +38,12 @@ export default function TheatreList({jsonData,user, changeUser}){
                 md:flex-row md:w-full">
 
                     <button type='type' onClick={()=>{navigate('/home')}} className='w-[5rem]   text-sm h-[2.5rem]  mb-1 border-[0.1rem] 
-                    rounded-3xl border-[#7a7777] md:w-[5rem]  md:h-[3rem] text-[black] border-[black] hover:text-[#ffffff] hover:bg-[black]
+                    text-xs  w-[3.5rem] rounded-3xl border-[#7a7777] md:w-[5rem]  md:h-[3rem] text-[black] border-[black] hover:text-[#ffffff] hover:bg-[black]
                       lg:h-[3rem] lg:text-sm lg:w-[5rem] flex justify-center items-center '>Back</button> 
                     
                     
                     <button type='type' onClick={()=>{navigate('/')}} className='w-[5rem]   text-sm h-[2.5rem]  mb-1 border-[0.1rem] rounded-3xl border-[#7a7777]  
-                     md:w-[5rem]  md:h-[3rem]
+                     md:w-[5rem]  md:h-[3rem] text-xs  w-[3.5rem] 
                       lg:h-[3rem] lg:text-sm lg:w-[5rem] flex justify-center items-center '>Log out</button> 
             </div> 
 
@@ -51,9 +52,9 @@ export default function TheatreList({jsonData,user, changeUser}){
             {
                 selectedMovie && 
                 (
-                <div  className="md:px-[1.5rem]  flex flex-col justify-center items-center md:items-center
+                <div  className="md:px-[1.5rem]  flex flex-col justify-center items-center md:items-center 
                 md:flex-row md:w-full">
-                    <div className="w-4/6 md:w-full m-[1rem]  border-[.1rem] p-[.3rem] rounded-lg cursor-pointer shadow-[red] shadow-lg
+                    <div className="w-4/6 md:w-full m-[1rem]  border-[.1rem] p-[.3rem] rounded-lg cursor-auto shadow-[red] shadow-lg
                      flex flex-col justify-center md:justify-start md:flex-row" >
                             <img src={selectedMovie.url} alt='movie' className="object-fill h-[17rem] md:h-[25em] md:w-[20em] md:mr-[1rem] rounded-lg"/> 
                             <div className="pl-[1rem] flex flex-col justify-center">
